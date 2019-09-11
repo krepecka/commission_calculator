@@ -8,7 +8,8 @@ const defaultCommission = {
     [CASH_IN]: {
       minFlat: 0,
       maxFlat: 3,
-      percentage: 0.03
+      percentage: 0.03,
+      weekLimit: 0
     },
     [CASH_OUT]: {
       minFlat: 0,
@@ -21,7 +22,8 @@ const defaultCommission = {
     [CASH_IN]: {
       minFlat: 0,
       maxFlat: 4,
-      percentage: 0.03
+      percentage: 0.03,
+      weekLimit: 0
     },
     [CASH_OUT]: {
       minFlat: 0.5,

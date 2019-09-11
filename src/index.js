@@ -1,6 +1,7 @@
 const logger = require("./services/logger");
 const readJson = require("./services/fileReader").readJson;
 const ratesAndLimits = require("./services/ratesAndLimits");
+const calculateCommission = require("./services/commissionCalculator");
 
 async function main() {
   if (process.argv.length < 3) {
@@ -8,17 +9,20 @@ async function main() {
   }
 
   const fileName = process.argv[2];
-  let jsonContent;
+  let transactions;
 
   await ratesAndLimits.fetchLatestRates();
-  console.log(ratesAndLimits.commission);
 
   try {
-    jsonContent = await readJson(fileName);
-    logger.out(jsonContent);
+    transactions = await readJson(fileName);
   } catch (e) {
     exitWithError(e);
   }
+
+  transactions.forEach(transaction => {
+    const commission = calculateCommission(transaction);
+    logger.out(commission.toFixed(2));
+  });
 }
 
 function exitWithError(message) {
