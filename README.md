@@ -20,3 +20,8 @@ npm start input.json
 There's just a few dummy tests. Extensive unit testing was postponed.
 
 The most important part to cover is **commissionCalculator**
+
+```
+npm test
+```
+
