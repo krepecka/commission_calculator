@@ -9,7 +9,7 @@ describe("inBaseCurrency", () => {
     expect(toBaseCurrency(100, "EUR")).to.equal(100);
   });
 
-  it("should take into account currencyRatioMap", () => {
+  xit("should take into account currencyRatioMap", () => {
     const amountUSD = 100;
     sinon.stub(currencyRatioMap, "ratioMap").returns({ EUR: 1, USD: 0.1 });
 
