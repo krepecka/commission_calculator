@@ -10,6 +10,7 @@ commissionCalculator fully adheres to this approach and it won't have to be chan
 and map weekly_limit, max, min values for all of person type and operation type combinations.
 
 ## Running the application
+Application uses async/await, so node version 8+ is required to run.
 ```
 npm i
 npm start input.json
