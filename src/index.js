@@ -1,6 +1,6 @@
 const logger = require("./services/logger");
 const readJson = require("./services/fileReader").readJson;
-const fetchRatesAndLimits = require("./services/fetchRatesAndLimits");
+const ratesAndLimits = require("./services/ratesAndLimits");
 
 async function main() {
   if (process.argv.length < 3) {
@@ -10,7 +10,8 @@ async function main() {
   const fileName = process.argv[2];
   let jsonContent;
 
-  const ratesLimits = await fetchRatesAndLimits();
+  await ratesAndLimits.fetchLatestRates();
+  console.log(ratesAndLimits.commission);
 
   try {
     jsonContent = await readJson(fileName);
